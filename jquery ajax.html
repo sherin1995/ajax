@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<button onclick='getMethod()'>get</button>
+<button onclick='postMethod()'>post</button>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/1.12.4/jquery.js"></script>
+<script type="text/javascript">
+    function getMethod() {
+        //完整版
+        // $.ajax('http://localhost:3000/posts',{
+        //     method:'get',
+        //     data:{},//可以给参数
+        //     success:function (result) {
+        //         console.log(result)
+        //     },
+        //     error:function (err) {
+        //         console.log(err)
+        //     }
+        // })
+        //简写
+        $.get('http://localhost:3000/posts', {
+            id: 1
+        }, (data, responseText, xhr) => {
+            console.log(data)
+        })
+    }
+
+    function postMethod() {
+        // //完整版
+        // $.ajax({
+        //     url:'http://localhost:3000/posts',
+        //     method:'post',
+        //     data:{
+        //         "id": Math.random(),
+        //         "title": "json-server",
+        //         "author": "typicode"
+        //     },
+        //     success:function (result){
+        //         console.log(result)
+        //     },
+        //     error:function (err) {
+        //         console.log(err)
+        //     }
+        //
+        // })
+        //简写
+        $.post('http://localhost:3000/posts', {
+            "id": Math.random(),
+            "title": "json-server",
+            "author": "typicode"
+        },(data)=>{
+            console.log(data)
+        })
+    }
+</script>
+</body>
+</html>
